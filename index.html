@@ -234,6 +234,91 @@
             display: block;
         }
         
+        /* Products Section */
+        .products-section {
+            background-color: var(--light-gray);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 25px;
+        }
+        
+        .product-info h3 {
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background-color: white;
+            padding: 35px 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-top: 4px solid transparent;
+        }
+        
+        .service-card:hover {
+            border-top-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+        
         /* Contact Section */
         .contact-container {
             display: flex;
@@ -470,11 +555,11 @@
             
             <nav>
                 <ul id="navMenu">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="#" data-page="home" class="active">Home</a></li>
+                    <li><a href="#" data-page="about">About</a></li>
+                    <li><a href="#" data-page="contact">Contact</a></li>
+                    <li><a href="#" data-page="privacy">Privacy Policy</a></li>
+                    <li><a href="#" data-page="terms">Terms & Conditions</a></li>
                 </ul>
             </nav>
         </div>
@@ -487,7 +572,49 @@
             <div class="container hero-content">
                 <h1>Your Trusted Hardware Partner in Bilaspur</h1>
                 <p>MODI HARDWARE offers a wide range of quality hardware products, tools, and supplies for all your construction, renovation, and DIY needs. Serving Bilaspur and surrounding areas with excellence since 2010.</p>
-                <a href="contact.html" class="btn">Contact Us Today</a>
+                <a href="#" data-page="contact" class="btn">Contact Us Today</a>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Products</h2>
+                    <p>We stock a comprehensive range of quality hardware products</p>
+                </div>
+                
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Power Tools">
+                        </div>
+                        <div class="product-info">
+                            <h3>Power Tools</h3>
+                            <p>Drills, saws, sanders, and all major power tool brands for professional and DIY use.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1581094795761-6b0d9c43bf62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Hand Tools">
+                        </div>
+                        <div class="product-info">
+                            <h3>Hand Tools</h3>
+                            <p>Hammers, screwdrivers, wrenches, pliers, and complete tool sets for every job.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Plumbing Supplies">
+                        </div>
+                        <div class="product-info">
+                            <h3>Plumbing Supplies</h3>
+                            <p>Pipes, fittings, faucets, valves, and all plumbing essentials for residential and commercial projects.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -496,6 +623,7 @@
             <div class="container">
                 <div class="section-title">
                     <h2>About MODI HARDWARE</h2>
+                    <p>Your reliable hardware partner in Bilaspur</p>
                 </div>
                 
                 <div class="about-content">
@@ -504,7 +632,7 @@
                         <p>MODI HARDWARE, owned and operated by Deepak Modi, has been serving the Bilaspur community for over a decade. We take pride in offering high-quality hardware products, tools, and materials for both residential and commercial projects.</p>
                         <p>Our store located at P-2, Sanjay Apartment, Vyapar Vihar Road, Bilaspur, is stocked with a comprehensive range of products from trusted brands. Our knowledgeable staff is always ready to assist you with expert advice for your hardware needs.</p>
                         <p>We believe in building lasting relationships with our customers through quality products, competitive pricing, and exceptional service. Whether you're a professional contractor or a DIY enthusiast, MODI HARDWARE has everything you need to get the job done right.</p>
-                        <a href="contact.html" class="btn btn-secondary">Visit Our Store</a>
+                        <a href="#" data-page="contact" class="btn btn-secondary">Visit Our Store</a>
                     </div>
                     
                     <div class="about-image">
@@ -514,17 +642,62 @@
             </div>
         </section>
 
+        <!-- Services Section -->
+        <section class="services-section" style="background-color: var(--light-gray);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Services</h2>
+                    <p>More than just a hardware store - we provide comprehensive solutions</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>Expert Advice</h3>
+                        <p>Our knowledgeable staff provides expert guidance for your projects, helping you choose the right tools and materials.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Bulk Order Delivery</h3>
+                        <p>We offer delivery services for bulk orders to construction sites and commercial projects in Bilaspur area.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3>Project Planning</h3>
+                        <p>Help with material estimation and planning for construction, renovation, and repair projects.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Tool Maintenance</h3>
+                        <p>Basic maintenance services and recommendations for keeping your tools in optimal condition.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
-        <section id="contact" style="background-color: var(--light-gray);">
+        <section id="contact">
             <div class="container">
                 <div class="section-title">
                     <h2>Contact Us</h2>
+                    <p>Get in touch with MODI HARDWARE today</p>
                 </div>
                 
                 <div class="contact-container">
                     <div class="contact-info">
-                        <h3>Get in Touch</h3>
-                        <p>Visit our store or contact us for all your hardware needs. We're here to help!</p>
+                        <h3>Visit Our Store</h3>
+                        <p>We welcome you to visit our store in Bilaspur. Our friendly staff is ready to assist you with all your hardware needs.</p>
                         
                         <div class="contact-detail">
                             <i class="fas fa-user"></i>
@@ -539,6 +712,14 @@
                             <div>
                                 <h4>Address</h4>
                                 <p>P-2, Sanjay Apartment, Vyapar Vihar Road,<br>Bilaspur, Chhattisgarh, 495001</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Business Hours</h4>
+                                <p>Monday - Saturday: 9:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 6:00 PM</p>
                             </div>
                         </div>
                         
@@ -563,12 +744,12 @@
                         <h3>Send Us a Message</h3>
                         <form id="contactForm">
                             <div class="form-group">
-                                <label for="name">Your Name</label>
+                                <label for="name">Your Name *</label>
                                 <input type="text" id="name" name="name" required>
                             </div>
                             
                             <div class="form-group">
-                                <label for="email">Your Email</label>
+                                <label for="email">Your Email *</label>
                                 <input type="email" id="email" name="email" required>
                             </div>
                             
@@ -578,7 +759,7 @@
                             </div>
                             
                             <div class="form-group">
-                                <label for="message">Your Message</label>
+                                <label for="message">Your Message *</label>
                                 <textarea id="message" name="message" required></textarea>
                             </div>
                             
@@ -607,11 +788,11 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="about">About Us</a></li>
+                        <li><a href="#" data-page="contact">Contact</a></li>
+                        <li><a href="#" data-page="privacy">Privacy Policy</a></li>
+                        <li><a href="#" data-page="terms">Terms & Conditions</a></li>
                     </ul>
                 </div>
                 
@@ -632,132 +813,6 @@
     </footer>
 
     <!-- Page Templates -->
-    <template id="homeTemplate">
-        <!-- Content already in main above -->
-    </template>
-    
-    <template id="aboutTemplate">
-        <section class="page-content">
-            <div class="container">
-                <h1>About MODI HARDWARE</h1>
-                
-                <p>MODI HARDWARE is a premier hardware store located in the heart of Bilaspur, Chhattisgarh. Founded and managed by Mr. Deepak Modi, our store has been serving the community with quality hardware products and exceptional customer service since 2010.</p>
-                
-                <h2>Our Mission</h2>
-                <p>Our mission is to provide our customers with high-quality hardware products, tools, and materials at competitive prices. We strive to be the go-to hardware store for both professionals and DIY enthusiasts in Bilaspur and surrounding areas.</p>
-                
-                <h2>Our Products</h2>
-                <p>We carry an extensive range of hardware products including:</p>
-                <ul>
-                    <li>Hand tools and power tools</li>
-                    <li>Construction materials</li>
-                    <li>Plumbing supplies</li>
-                    <li>Electrical items</li>
-                    <li>Paint and painting accessories</li>
-                    <li>Hardware fittings and fixtures</li>
-                    <li>Safety equipment</li>
-                    <li>Gardening tools and supplies</li>
-                </ul>
-                
-                <h2>Why Choose Us?</h2>
-                <p>With over a decade of experience in the hardware business, we understand the needs of our customers. Our knowledgeable staff can provide expert advice to help you select the right products for your project. We source our products from reputable manufacturers to ensure quality and reliability.</p>
-                
-                <p>At MODI HARDWARE, we believe in building lasting relationships with our customers through trust, quality, and exceptional service. Visit our store today and experience the difference!</p>
-                
-                <a href="contact.html" class="btn">Contact Us</a>
-            </div>
-        </section>
-    </template>
-    
-    <template id="contactTemplate">
-        <section class="page-content">
-            <div class="container">
-                <h1>Contact MODI HARDWARE</h1>
-                
-                <div class="contact-container" style="margin-top: 40px;">
-                    <div class="contact-info">
-                        <h2>Visit Our Store</h2>
-                        <p>We welcome you to visit our store in Bilaspur. Our friendly staff is ready to assist you with all your hardware needs.</p>
-                        
-                        <div class="contact-detail">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4>Store Address</h4>
-                                <p>P-2, Sanjay Apartment, Vyapar Vihar Road,<br>Bilaspur, Chhattisgarh, 495001</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-detail">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h4>Business Hours</h4>
-                                <p>Monday - Saturday: 9:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 6:00 PM</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-detail">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4>Phone Number</h4>
-                                <p>9826517676</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-detail">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>Email Address</h4>
-                                <p>dmodi6@gmail.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-detail">
-                            <i class="fas fa-user"></i>
-                            <div>
-                                <h4>Proprietor</h4>
-                                <p>Deepak Modi</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-form">
-                        <h2>Send Us a Message</h2>
-                        <p>Have questions about our products or need assistance with your project? Send us a message and we'll get back to you as soon as possible.</p>
-                        
-                        <form id="contactPageForm" style="margin-top: 30px;">
-                            <div class="form-group">
-                                <label for="contactName">Your Name *</label>
-                                <input type="text" id="contactName" name="name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="contactEmail">Your Email *</label>
-                                <input type="email" id="contactEmail" name="email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="contactPhone">Phone Number</label>
-                                <input type="tel" id="contactPhone" name="phone">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="contactSubject">Subject</label>
-                                <input type="text" id="contactSubject" name="subject">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="contactMessage">Your Message *</label>
-                                <textarea id="contactMessage" name="message" required></textarea>
-                            </div>
-                            
-                            <button type="submit" class="btn">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </template>
-    
     <template id="privacyTemplate">
         <section class="page-content">
             <div class="container">
@@ -872,9 +927,6 @@
         const currentYear = document.getElementById('currentYear');
         
         // Templates
-        const homeTemplate = document.getElementById('homeTemplate');
-        const aboutTemplate = document.getElementById('aboutTemplate');
-        const contactTemplate = document.getElementById('contactTemplate');
         const privacyTemplate = document.getElementById('privacyTemplate');
         const termsTemplate = document.getElementById('termsTemplate');
         
@@ -890,63 +942,51 @@
         
         // Navigation functionality
         function loadPage(page) {
-            // Clear main content
-            mainContent.innerHTML = '';
-            
             // Update active nav link
             document.querySelectorAll('nav ul li a').forEach(link => {
                 link.classList.remove('active');
+                if (link.getAttribute('data-page') === page) {
+                    link.classList.add('active');
+                }
             });
             
-            // Load appropriate template
-            let template;
-            switch(page) {
-                case 'about':
-                    template = aboutTemplate;
-                    document.querySelector('nav ul li:nth-child(2) a').classList.add('active');
-                    document.title = 'About Us - MODI HARDWARE';
-                    break;
-                case 'contact':
-                    template = contactTemplate;
-                    document.querySelector('nav ul li:nth-child(3) a').classList.add('active');
-                    document.title = 'Contact Us - MODI HARDWARE';
-                    break;
-                case 'privacy':
-                    template = privacyTemplate;
-                    document.querySelector('nav ul li:nth-child(4) a').classList.add('active');
+            // Clear main content for privacy and terms pages
+            if (page === 'privacy' || page === 'terms') {
+                mainContent.innerHTML = '';
+                
+                if (page === 'privacy') {
+                    const clone = document.importNode(privacyTemplate.content, true);
+                    clone.getElementById('currentDate').textContent = currentDate;
+                    mainContent.appendChild(clone);
                     document.title = 'Privacy Policy - MODI HARDWARE';
-                    // Set current date in privacy policy
-                    const privacyClone = document.importNode(template.content, true);
-                    privacyClone.getElementById('currentDate').textContent = currentDate;
-                    mainContent.appendChild(privacyClone);
-                    return;
-                case 'terms':
-                    template = termsTemplate;
-                    document.querySelector('nav ul li:nth-child(5) a').classList.add('active');
+                } else if (page === 'terms') {
+                    const clone = document.importNode(termsTemplate.content, true);
+                    clone.getElementById('currentDate2').textContent = currentDate;
+                    mainContent.appendChild(clone);
                     document.title = 'Terms & Conditions - MODI HARDWARE';
-                    // Set current date in terms
-                    const termsClone = document.importNode(template.content, true);
-                    termsClone.getElementById('currentDate2').textContent = currentDate;
-                    mainContent.appendChild(termsClone);
-                    return;
-                default:
-                    template = homeTemplate;
-                    document.querySelector('nav ul li:nth-child(1) a').classList.add('active');
-                    document.title = 'MODI HARDWARE - Your Trusted Hardware Store in Bilaspur';
+                }
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
             }
             
-            const clone = document.importNode(template.content, true);
-            mainContent.appendChild(clone);
-            
-            // Re-attach event listeners for forms on the new page
-            if (page === 'contact' || page === 'home') {
-                attachFormListeners();
+            // For home, about, contact pages - they're already loaded, just scroll to them
+            if (page === 'home') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                document.title = 'MODI HARDWARE - Your Trusted Hardware Store in Bilaspur';
+            } else if (page === 'about') {
+                document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+                document.title = 'About Us - MODI HARDWARE';
+            } else if (page === 'contact') {
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                document.title = 'Contact Us - MODI HARDWARE';
             }
         }
         
         // Handle form submissions
         function attachFormListeners() {
-            const contactForm = document.getElementById('contactForm') || document.getElementById('contactPageForm');
+            const contactForm = document.getElementById('contactForm');
             if (contactForm) {
                 contactForm.addEventListener('submit', function(e) {
                     e.preventDefault();
@@ -958,19 +998,18 @@
         
         // Initialize page
         function init() {
-            // Load home page by default
-            loadPage('home');
-            
             // Set up navigation click handlers
-            document.querySelectorAll('nav ul li a').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const page = this.getAttribute('href').split('.')[0];
-                    loadPage(page);
-                    
-                    // Close mobile menu if open
-                    navMenu.classList.remove('active');
-                });
+            document.querySelectorAll('nav a, .footer-column a, .btn[data-page]').forEach(link => {
+                if (link.hasAttribute('data-page')) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const page = this.getAttribute('data-page');
+                        loadPage(page);
+                        
+                        // Close mobile menu if open
+                        navMenu.classList.remove('active');
+                    });
+                }
             });
             
             // Mobile menu toggle
