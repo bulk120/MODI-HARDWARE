@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODI HARDWARE - Your Trusted Hardware Store in Bilaspur</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2c5aa0;
+            --primary-dark: #1e3a6e;
+            --secondary: #e6a23c;
+            --light: #f5f7fa;
+            --dark: #333;
+            --gray: #666;
+            --light-gray: #f0f0f0;
+            --border: #ddd;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #d9922a;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            font-weight: 600;
+            color: var(--dark);
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a.active {
+            color: var(--primary);
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 0;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .contact-detail i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            width: 50px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding-right: 20px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+            transition: all 0.3s;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Page Content */
+        .page-content {
+            padding: 100px 0 80px;
+            background-color: white;
+        }
+        
+        .page-content h1 {
+            font-size: 2.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+        
+        .page-content h2 {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin: 30px 0 15px;
+        }
+        
+        .page-content p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .page-content ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        
+        .page-content ul li {
+            margin-bottom: 8px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .page-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-tools"></i>
+                <div class="logo-text">MODI <span>HARDWARE</span></div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Your Trusted Hardware Partner in Bilaspur</h1>
+                <p>MODI HARDWARE offers a wide range of quality hardware products, tools, and supplies for all your construction, renovation, and DIY needs. Serving Bilaspur and surrounding areas with excellence since 2010.</p>
+                <a href="contact.html" class="btn">Contact Us Today</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About MODI HARDWARE</h2>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Your Local Hardware Experts</h3>
+                        <p>MODI HARDWARE, owned and operated by Deepak Modi, has been serving the Bilaspur community for over a decade. We take pride in offering high-quality hardware products, tools, and materials for both residential and commercial projects.</p>
+                        <p>Our store located at P-2, Sanjay Apartment, Vyapar Vihar Road, Bilaspur, is stocked with a comprehensive range of products from trusted brands. Our knowledgeable staff is always ready to assist you with expert advice for your hardware needs.</p>
+                        <p>We believe in building lasting relationships with our customers through quality products, competitive pricing, and exceptional service. Whether you're a professional contractor or a DIY enthusiast, MODI HARDWARE has everything you need to get the job done right.</p>
+                        <a href="contact.html" class="btn btn-secondary">Visit Our Store</a>
+                    </div>
+                    
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1576613109753-27804de2cba8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="MODI HARDWARE Store">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="background-color: var(--light-gray);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <p>Visit our store or contact us for all your hardware needs. We're here to help!</p>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <h4>Owner</h4>
+                                <p>Deepak Modi</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Address</h4>
+                                <p>P-2, Sanjay Apartment, Vyapar Vihar Road,<br>Bilaspur, Chhattisgarh, 495001</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>9826517676</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>dmodi6@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MODI HARDWARE</h3>
+                    <p>Your trusted hardware store in Bilaspur, providing quality products and excellent service for over a decade.</p>
+                    <div style="margin-top: 20px;">
+                        <a href="#" style="margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" style="font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> P-2, Sanjay Apartment, Vyapar Vihar Road, Bilaspur, Chhattisgarh, 495001</li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> 9826517676</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> dmodi6@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> MODI HARDWARE. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Page Templates -->
+    <template id="homeTemplate">
+        <!-- Content already in main above -->
+    </template>
+    
+    <template id="aboutTemplate">
+        <section class="page-content">
+            <div class="container">
+                <h1>About MODI HARDWARE</h1>
+                
+                <p>MODI HARDWARE is a premier hardware store located in the heart of Bilaspur, Chhattisgarh. Founded and managed by Mr. Deepak Modi, our store has been serving the community with quality hardware products and exceptional customer service since 2010.</p>
+                
+                <h2>Our Mission</h2>
+                <p>Our mission is to provide our customers with high-quality hardware products, tools, and materials at competitive prices. We strive to be the go-to hardware store for both professionals and DIY enthusiasts in Bilaspur and surrounding areas.</p>
+                
+                <h2>Our Products</h2>
+                <p>We carry an extensive range of hardware products including:</p>
+                <ul>
+                    <li>Hand tools and power tools</li>
+                    <li>Construction materials</li>
+                    <li>Plumbing supplies</li>
+                    <li>Electrical items</li>
+                    <li>Paint and painting accessories</li>
+                    <li>Hardware fittings and fixtures</li>
+                    <li>Safety equipment</li>
+                    <li>Gardening tools and supplies</li>
+                </ul>
+                
+                <h2>Why Choose Us?</h2>
+                <p>With over a decade of experience in the hardware business, we understand the needs of our customers. Our knowledgeable staff can provide expert advice to help you select the right products for your project. We source our products from reputable manufacturers to ensure quality and reliability.</p>
+                
+                <p>At MODI HARDWARE, we believe in building lasting relationships with our customers through trust, quality, and exceptional service. Visit our store today and experience the difference!</p>
+                
+                <a href="contact.html" class="btn">Contact Us</a>
+            </div>
+        </section>
+    </template>
+    
+    <template id="contactTemplate">
+        <section class="page-content">
+            <div class="container">
+                <h1>Contact MODI HARDWARE</h1>
+                
+                <div class="contact-container" style="margin-top: 40px;">
+                    <div class="contact-info">
+                        <h2>Visit Our Store</h2>
+                        <p>We welcome you to visit our store in Bilaspur. Our friendly staff is ready to assist you with all your hardware needs.</p>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Store Address</h4>
+                                <p>P-2, Sanjay Apartment, Vyapar Vihar Road,<br>Bilaspur, Chhattisgarh, 495001</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Business Hours</h4>
+                                <p>Monday - Saturday: 9:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone Number</h4>
+                                <p>9826517676</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email Address</h4>
+                                <p>dmodi6@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <h4>Proprietor</h4>
+                                <p>Deepak Modi</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h2>Send Us a Message</h2>
+                        <p>Have questions about our products or need assistance with your project? Send us a message and we'll get back to you as soon as possible.</p>
+                        
+                        <form id="contactPageForm" style="margin-top: 30px;">
+                            <div class="form-group">
+                                <label for="contactName">Your Name *</label>
+                                <input type="text" id="contactName" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactEmail">Your Email *</label>
+                                <input type="email" id="contactEmail" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactPhone">Phone Number</label>
+                                <input type="tel" id="contactPhone" name="phone">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactSubject">Subject</label>
+                                <input type="text" id="contactSubject" name="subject">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactMessage">Your Message *</label>
+                                <textarea id="contactMessage" name="message" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+    
+    <template id="privacyTemplate">
+        <section class="page-content">
+            <div class="container">
+                <h1>Privacy Policy</h1>
+                <p>Last updated: <span id="currentDate"></span></p>
+                
+                <p>This Privacy Policy describes how MODI HARDWARE ("we", "us", or "our") collects, uses, and discloses your personal information when you visit our website or interact with us.</p>
+                
+                <h2>Information We Collect</h2>
+                <p>We may collect personal information that you voluntarily provide to us when you:</p>
+                <ul>
+                    <li>Contact us through our website forms</li>
+                    <li>Visit our physical store</li>
+                    <li>Make inquiries about our products or services</li>
+                </ul>
+                
+                <p>The types of personal information we may collect include:</p>
+                <ul>
+                    <li>Name</li>
+                    <li>Contact information (email address, phone number, address)</li>
+                    <li>Any other information you choose to provide</li>
+                </ul>
+                
+                <h2>How We Use Your Information</h2>
+                <p>We use the information we collect to:</p>
+                <ul>
+                    <li>Respond to your inquiries and provide customer support</li>
+                    <li>Provide information about our products and services</li>
+                    <li>Improve our website and services</li>
+                    <li>Comply with legal obligations</li>
+                </ul>
+                
+                <h2>Information Sharing</h2>
+                <p>We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:</p>
+                <ul>
+                    <li>With your consent</li>
+                    <li>To comply with legal obligations</li>
+                    <li>To protect our rights or property</li>
+                </ul>
+                
+                <h2>Data Security</h2>
+                <p>We take reasonable measures to protect your personal information from unauthorized access, use, or disclosure. However, no method of transmission over the Internet or electronic storage is 100% secure.</p>
+                
+                <h2>Your Rights</h2>
+                <p>You have the right to:</p>
+                <ul>
+                    <li>Access the personal information we hold about you</li>
+                    <li>Request correction of inaccurate information</li>
+                    <li>Request deletion of your personal information</li>
+                    <li>Object to the processing of your personal information</li>
+                </ul>
+                
+                <h2>Changes to This Privacy Policy</h2>
+                <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.</p>
+                
+                <h2>Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us:</p>
+                <ul>
+                    <li>By phone: 9826517676</li>
+                    <li>By email: dmodi6@gmail.com</li>
+                    <li>By visiting our store: P-2, Sanjay Apartment, Vyapar Vihar Road, Bilaspur, Chhattisgarh, 495001</li>
+                </ul>
+            </div>
+        </section>
+    </template>
+    
+    <template id="termsTemplate">
+        <section class="page-content">
+            <div class="container">
+                <h1>Terms and Conditions</h1>
+                <p>Last updated: <span id="currentDate2"></span></p>
+                
+                <p>Welcome to MODI HARDWARE. These Terms and Conditions govern your use of our website and services. By accessing or using our website, you agree to be bound by these Terms.</p>
+                
+                <h2>1. Intellectual Property</h2>
+                <p>The content on this website, including text, graphics, logos, and images, is the property of MODI HARDWARE and is protected by copyright and other intellectual property laws.</p>
+                
+                <h2>2. Product Information</h2>
+                <p>We strive to provide accurate product information on our website. However, we do not warrant that product descriptions, prices, or other content is accurate, complete, reliable, current, or error-free. Product availability may change without notice.</p>
+                
+                <h2>3. Pricing</h2>
+                <p>All prices are in Indian Rupees (₹) and are subject to change without notice. Prices displayed on our website may differ from prices in our physical store.</p>
+                
+                <h2>4. Limitation of Liability</h2>
+                <p>MODI HARDWARE shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the website or services.</p>
+                
+                <h2>5. Links to Other Websites</h2>
+                <p>Our website may contain links to third-party websites. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party websites.</p>
+                
+                <h2>6. Governing Law</h2>
+                <p>These Terms shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law provisions.</p>
+                
+                <h2>7. Changes to Terms</h2>
+                <p>We reserve the right to modify these Terms at any time. We will notify you of any changes by posting the new Terms on this page and updating the "Last updated" date.</p>
+                
+                <h2>8. Contact Information</h2>
+                <p>If you have any questions about these Terms, please contact us:</p>
+                <ul>
+                    <li>By phone: 9826517676</li>
+                    <li>By email: dmodi6@gmail.com</li>
+                    <li>By visiting our store: P-2, Sanjay Apartment, Vyapar Vihar Road, Bilaspur, Chhattisgarh, 495001</li>
+                </ul>
+            </div>
+        </section>
+    </template>
+
+    <script>
+        // DOM Elements
+        const mainContent = document.getElementById('mainContent');
+        const navMenu = document.getElementById('navMenu');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const currentYear = document.getElementById('currentYear');
+        
+        // Templates
+        const homeTemplate = document.getElementById('homeTemplate');
+        const aboutTemplate = document.getElementById('aboutTemplate');
+        const contactTemplate = document.getElementById('contactTemplate');
+        const privacyTemplate = document.getElementById('privacyTemplate');
+        const termsTemplate = document.getElementById('termsTemplate');
+        
+        // Set current year in footer
+        currentYear.textContent = new Date().getFullYear();
+        
+        // Set current date in privacy and terms pages
+        const currentDate = new Date().toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        // Navigation functionality
+        function loadPage(page) {
+            // Clear main content
+            mainContent.innerHTML = '';
+            
+            // Update active nav link
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Load appropriate template
+            let template;
+            switch(page) {
+                case 'about':
+                    template = aboutTemplate;
+                    document.querySelector('nav ul li:nth-child(2) a').classList.add('active');
+                    document.title = 'About Us - MODI HARDWARE';
+                    break;
+                case 'contact':
+                    template = contactTemplate;
+                    document.querySelector('nav ul li:nth-child(3) a').classList.add('active');
+                    document.title = 'Contact Us - MODI HARDWARE';
+                    break;
+                case 'privacy':
+                    template = privacyTemplate;
+                    document.querySelector('nav ul li:nth-child(4) a').classList.add('active');
+                    document.title = 'Privacy Policy - MODI HARDWARE';
+                    // Set current date in privacy policy
+                    const privacyClone = document.importNode(template.content, true);
+                    privacyClone.getElementById('currentDate').textContent = currentDate;
+                    mainContent.appendChild(privacyClone);
+                    return;
+                case 'terms':
+                    template = termsTemplate;
+                    document.querySelector('nav ul li:nth-child(5) a').classList.add('active');
+                    document.title = 'Terms & Conditions - MODI HARDWARE';
+                    // Set current date in terms
+                    const termsClone = document.importNode(template.content, true);
+                    termsClone.getElementById('currentDate2').textContent = currentDate;
+                    mainContent.appendChild(termsClone);
+                    return;
+                default:
+                    template = homeTemplate;
+                    document.querySelector('nav ul li:nth-child(1) a').classList.add('active');
+                    document.title = 'MODI HARDWARE - Your Trusted Hardware Store in Bilaspur';
+            }
+            
+            const clone = document.importNode(template.content, true);
+            mainContent.appendChild(clone);
+            
+            // Re-attach event listeners for forms on the new page
+            if (page === 'contact' || page === 'home') {
+                attachFormListeners();
+            }
+        }
+        
+        // Handle form submissions
+        function attachFormListeners() {
+            const contactForm = document.getElementById('contactForm') || document.getElementById('contactPageForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! We will contact you soon.');
+                    this.reset();
+                });
+            }
+        }
+        
+        // Initialize page
+        function init() {
+            // Load home page by default
+            loadPage('home');
+            
+            // Set up navigation click handlers
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.getAttribute('href').split('.')[0];
+                    loadPage(page);
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                });
+            });
+            
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+            
+            // Initial attachment of form listeners
+            attachFormListeners();
+        }
+        
+        // Initialize the site
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
